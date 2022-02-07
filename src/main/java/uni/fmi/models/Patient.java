@@ -14,6 +14,10 @@ public class Patient {
     /**
      * Default constructor
      */
+    public Patient() {
+    	this(null, null, null, null);
+    }
+    
     public Patient(final String email, final String phoneNumber, final String firstName, final String lastName) {
     	this.email = email;
     	this.phoneNumber = phoneNumber;
@@ -96,4 +100,20 @@ public class Patient {
         this.appointments = appointments;
     }
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(email);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Patient other = (Patient) obj;
+		return Objects.equals(email, other.email);
+	}
 }

@@ -1,5 +1,6 @@
 package uni.fmi.models;
 import java.time.LocalTime;
+import java.util.Objects;
 
 /**
  * 
@@ -45,5 +46,22 @@ public class TimePeriod {
     public void setEnd(LocalTime end) {
         this.end = end;
     }
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(end, start);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		TimePeriod other = (TimePeriod) obj;
+		return Objects.equals(end, other.end) && Objects.equals(start, other.start);
+	}
 
 }

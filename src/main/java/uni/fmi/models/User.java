@@ -19,6 +19,16 @@ public class User {
      * Default constructor
      */
     public User() {
+    	this(null, null, null, null, null, null);
+    }
+    
+    public User(String username, String email, String password, String firstName, String lastName, Role role) {
+    	this.username = username;
+    	this.email = email;
+    	this.password = password;
+    	this.firstName = firstName;
+    	this.lastName = lastName;
+    	this.role = role;
     }
 
     /**
@@ -156,4 +166,20 @@ public class User {
         this.calendar = calendar;
     }
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(username);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		User other = (User) obj;
+		return Objects.equals(username, other.username);
+	}
 }

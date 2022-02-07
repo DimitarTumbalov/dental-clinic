@@ -80,4 +80,23 @@ public class Calendar {
         this.appointments = appointments;
     }
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(holidays, workSchedule);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Calendar other = (Calendar) obj;
+		return Objects.equals(holidays, other.holidays) && Objects.equals(workSchedule, other.workSchedule);
+	}
+    
+    
+
 }

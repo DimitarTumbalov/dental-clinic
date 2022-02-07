@@ -13,6 +13,12 @@ public class Role {
      * Default constructor
      */
     public Role() {
+    	this(-1, null);
+    }
+    
+    public Role(int id, String name) {
+    	this.id = id;
+    	this.name = name;
     }
 
     /**
@@ -62,11 +68,7 @@ public class Role {
 
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + id;
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		return result;
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -78,14 +80,6 @@ public class Role {
 		if (getClass() != obj.getClass())
 			return false;
 		Role other = (Role) obj;
-		if (id != other.id)
-			return false;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		return true;
+		return id == other.id;
 	}
-
 }

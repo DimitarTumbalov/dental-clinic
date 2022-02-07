@@ -15,7 +15,7 @@ public class AppointmentSteps {
 	private AppointmentScreenModel appointmentModel;
 	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm dd-MM-yyyy");
 	
-	@Given("^Потребителят отваря екрана за запазване на час$")
+	@Given("^Човекът отваря екрана за запазване на час$")
 	public void openAppointmentScreen() throws Throwable {
 		appointmentModel = new AppointmentScreenModel();
 	}
