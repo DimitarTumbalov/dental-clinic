@@ -77,12 +77,12 @@ public class AppointmentService {
 		else if(appointmentsDb.stream().anyMatch(a -> time.isAfter(a.getTime().minusSeconds(1)) && time.isBefore(a.getTime().plusMinutes(30)))){ // Check if an appointment in this time frame already exists
 			return "Часът е зает";
 		}
-		else if(calendar.getHolidays().stream().anyMatch(h -> time.isAfter(h.getStart().minusSeconds(1)) && time.isBefore(h.getEnd()))){ // Check if the office will be working
+		else if(calendar.getHolidays().stream().anyMatch(h -> time.isAfter(h.getStart().minusSeconds(1)) && time.isBefore(h.getEnd()))){ // Check if the clinic will be working
 			return "Кабинетът ще бъде затворен";
 		}else{
 			Set<TimePeriod> workingHours = calendar.getWorkSchedule().get(appointmentDay);
 			
-			// Check if the appointment is within the working hours
+			// Check if the appointment is within working hours
 			if(workingHours != null && workingHours.stream().anyMatch(wh -> appointmentTime.isAfter(wh.getStart().minusSeconds(1)) && appointmentTime.isBefore(wh.getEnd().minusMinutes(29)))) {
 				if(creator != null) {
 					appointmentsDb.add(new Appointment(creator, patient, time));
@@ -112,7 +112,7 @@ public class AppointmentService {
 	private static void intDb() {
 		appointmentsDb.clear();
 		appointmentsDb.add(
-			new Appointment(null, new Patient("pertov@abv.bg", "0878595877", "Petar", "Petrov"), LocalDateTime.of(2022, 5, 5, 14, 0)) // 05.05 TUESDAY: 14:00
+			new Appointment(null, new Patient("petrov@abv.bg", "0878595877", "Petar", "Petrov"), LocalDateTime.of(2022, 5, 5, 14, 0)) // 05.05 TUESDAY: 14:00
 		);
 	}
 	
