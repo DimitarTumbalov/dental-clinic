@@ -35,9 +35,9 @@ public class AppointmentService {
 	
 	private static Map<DayOfWeek, Set<TimePeriod>> workSchedule = Map.of(
 			DayOfWeek.MONDAY, Set.of(workingHours11, workingHours12), // MONDAY: 08:00 - 12:00 and 13:00 - 17:00
-			DayOfWeek.THURSDAY, Set.of(workingHours11, workingHours12), // THURSDAY: 08:00 - 12:00 and 13:00 - 17:00
-			DayOfWeek.WEDNESDAY, Set.of(workingHours21, workingHours22), // WEDNESDAY: 09:30 - 13:30 and 14:30 - 18:30
 			DayOfWeek.TUESDAY, Set.of(workingHours11, workingHours12), // TUESDAY: 08:00 - 12:00 and 13:00 - 17:00
+			DayOfWeek.WEDNESDAY, Set.of(workingHours21, workingHours22), // WEDNESDAY: 09:30 - 13:30 and 14:30 - 18:30
+			DayOfWeek.THURSDAY, Set.of(workingHours11, workingHours12), // THURSDAY: 08:00 - 12:00 and 13:00 - 17:00
 			DayOfWeek.FRIDAY, Set.of(workingHours31, workingHours32) // FRIDAY: 10:00 - 13:00 and 14:00 - 19:00
 	);
 	
