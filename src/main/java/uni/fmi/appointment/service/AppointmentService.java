@@ -112,7 +112,7 @@ public class AppointmentService {
 	private static void intDb() {
 		appointmentsDb.clear();
 		appointmentsDb.add(
-			new Appointment(null, new Patient("petrov@abv.bg", "0878595877", "Petar", "Petrov"), LocalDateTime.of(2022, 5, 5, 14, 0)) // 05.05 TUESDAY: 14:00
+			new Appointment(null, new Patient("petrov@abv.bg", "0878595877", "Petar", "Petrov"), LocalDateTime.of(2022, 5, 5, 14, 0)) // 05.05 THURSDAY: 14:00
 		);
 	}
 	
